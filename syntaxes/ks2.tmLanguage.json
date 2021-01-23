@@ -5,7 +5,10 @@
         {
             "include": "#comments"
         },
-        {
+		{
+			"include": "#novels"
+		},
+		{
             "include": "#strings"
         },
         {
@@ -13,7 +16,7 @@
         },
         {
             "include": "#vars"
-        }
+		}
     ],
     "repository": {
         "comments": {
@@ -21,62 +24,91 @@
                 {
                     "comment": "一行コメントは;で始まります",
                     "name": "comment.line",
-                    "match": ";.*"
+                    "match": "//.*"
                 },
                 {
                     "comment": "複数行コメントは{}です",
                     "name": "comment.block",
-                    "begin": "{",
-                    "end": "}"
+                    "begin": "/\\*",
+                    "end": "\\*/"
                 }
             ]
-        },
+		},
+		"novels":{
+			"patterns": [
+				{
+					"comment": "名前のノベル文です",
+					"name":"markup.raw",
+					"begin": "@{",
+					"end": "@}",
+					"patterns": [
+						{
+							"include": "#inline_var"
+						},
+						{
+							"comment": "名前行",
+							"name": "markup.bold",
+							"match": "\\-.*",
+							"patterns": [
+								{
+									"include": "#inline_var"
+								}
+							]
+						},
+						{
+							"comment": "改行文字",
+							"name": "keyword.other",
+							"match": "」|<p>|<n>"
+						}
+					]
+				}
+			]
+		},
         "strings": {
             "comment": "文字列です",
-            "name": "string.quoted.double.kuin",
+            "name": "string.quoted",
             "begin": "\"",
-            "end": "\"",
-            "patterns": [
-                {
-                    "name": "constant.character.escape.kuin",
-                    "match": "\\\\."
-                }
-            ]
+            "end": "\""
         },
         "keywords": {
             "patterns": [
                 {
                     "name": "keyword.control",
-                    "match": "\\b(alias|assert|block|break|case|catch)\\b"
+                    "match": "\\b(if|else|for|while|break|continue|return|import|system)\\b"
                 },
                 {
-                    "name": "keyword.control",
-                    "match": "\\b(class|const|dbg|default|do|elif|else|end|finally)\\b"
-                },
-                {
-                    "name": "keyword.control",
-                    "match": "\\b(for|func|if|include|inf|ret|skip|stack|switch|throw|to|try|var|while)\\b"
-                },
-                {
-                    "name": "keyword.other",
-                    "match": "\\b(bit16|bit32|bit64|bit8|bool|char|dict|enum|false|float|int|list|me|null|queue|super|true)\\b"
-                }
+                    "name": "keyword",
+                    "match": "\\b(int|float|string|void|null)\\b"
+				},
+				{
+					"name":"keyword.operator",
+					"match": "\\+|\\-|\\*|/|\\%|<|>|(\\!=)|=|(\\&\\&)|(\\|\\|)"
+				}
             ]
         },
         "vars": {
             "patterns": [
                 {
-                    "comment": "%定数です",
-                    "name": "constant.other",
-                    "match": "%[0-9a-zA-Z_]+"
+                    "comment": "数字です",
+                    "name": "constant.numeric",
+                    "match": "%[\\-0-9]+"
                 },
                 {
                     "comment": "変数です",
-                    "name": "variable.name",
-                    "match": "[0-9a-zA-Z@_\\[\\]\\.#]+"
+                    "name": "variable",
+                    "match": "[a-zA-Z_][0-9a-zA-Z_\\[\\]]*"
                 }
             ]
-        }
+		},
+		"inline_var":{
+			"patterns": [
+				{
+					"comment": "組み込み変数",
+					"name": "variable",
+					"match": "\\%[a-zA-Z_][a-zA-Z_0-9]*\\%"
+				}
+			]
+		}
     },
     "scopeName": "source.ks2"
 }

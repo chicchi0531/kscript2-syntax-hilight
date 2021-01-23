@@ -8,6 +8,10 @@
 	"engines": {
 		"vscode": "^0.10.1"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/chicchi0531/kscript2-syntax-hilight.git"
+	},
 	"categories": [
 		"Programming Languages"
 	],
@@ -22,6 +26,12 @@
 			"language": "kscript2",
 			"scopeName": "source.ks2",
 			"path": "./syntaxes/ks2.tmLanguage.json"
-		}]
+		}],
+		"snippets": [
+			{
+				"language": "kscript2",
+				"path": "./snippets/snippet.json"
+			}
+		]
 	}
 }

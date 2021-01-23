@@ -1,0 +1,50 @@
+{
+    "import":{
+        "prefix": "import",
+        "body":[
+            "import \"${1:filename}.ks\";"
+        ]
+    },
+    "if":{
+        "prefix": "if",
+        "body":[
+            "if (${1:/*expr*/})",
+            "{",
+            "   ${2:/*statements*/}",
+            "}"
+        ]
+    },
+    "else":{
+        "prefix": "else",
+        "body":[
+            "else",
+            "{",
+            "   ${1:/*statements*/}",
+            "}"
+        ]
+    },
+    "for":{
+        "prefix": "for",
+        "body":[
+            "for (${1:/*init*/}; ${2:/*expr*/}; ${3:/*iter*/})",
+            "{",
+            "   ${4:/*statement*/}",
+            "}"
+        ]
+    },
+    "while":{
+        "prefix": "while",
+        "body":[
+            "while (${1:/*expr*/})",
+            "{",
+            "   ${2:/*statements*/}",
+            "}"
+        ]
+    },
+    "novel_name":{
+        "prefix": "「",
+        "body":[
+            "- ${1:名前}"
+        ]
+    }
+}
