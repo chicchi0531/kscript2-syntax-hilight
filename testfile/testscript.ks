@@ -1,0 +1,6 @@
+//single comments.
+
+/*
+コメント
+*/
+

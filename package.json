@@ -1,0 +1,27 @@
+{
+	"name": "kscript2",
+	"displayName": "KScript2",
+	"description": "Language support for kscript2",
+	"version": "0.0.1",
+	"publisher": "chicchi",
+	"icon": "images/ks_icon.png",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [{
+			"id": "kscript2",
+			"aliases": ["KScript2", "ks2"],
+			"extensions": [".ks"],
+			"configuration": "./ks2.configuration.json"
+		}],
+		"grammars": [{
+			"language": "kscript2",
+			"scopeName": "source.ks2",
+			"path": "./syntaxes/ks2.tmLanguage.json"
+		}]
+	}
+}
