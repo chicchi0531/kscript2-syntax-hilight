@@ -55,6 +55,11 @@
 								}
 							]
 						},
+                        {
+                            "comment": "命令行",
+                            "name": "markup.inline.raw",
+                            "match": "\\b(BG|ST|CLR|SE|BGM)\\b.*"
+                        },
 						{
 							"comment": "改行文字",
 							"name": "keyword.other",
