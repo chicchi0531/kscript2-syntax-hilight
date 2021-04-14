@@ -2,7 +2,7 @@
 	"name": "kscript2",
 	"displayName": "KScript2",
 	"description": "Language support for kscript2",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"publisher": "koromosoft",
 	"icon": "images/ks_icon.png",
 	"engines": {
@@ -16,17 +16,26 @@
 		"Programming Languages"
 	],
 	"contributes": {
-		"languages": [{
-			"id": "kscript2",
-			"aliases": ["KScript2", "ks2"],
-			"extensions": [".ks"],
-			"configuration": "./ks2.configuration.json"
-		}],
-		"grammars": [{
-			"language": "kscript2",
-			"scopeName": "source.ks2",
-			"path": "./syntaxes/ks2.tmLanguage.json"
-		}],
+		"languages": [
+			{
+				"id": "kscript2",
+				"aliases": [
+					"KScript2",
+					"ks2"
+				],
+				"extensions": [
+					".ks"
+				],
+				"configuration": "./ks2.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "kscript2",
+				"scopeName": "source.ks2",
+				"path": "./syntaxes/ks2.tmLanguage.json"
+			}
+		],
 		"snippets": [
 			{
 				"language": "kscript2",
