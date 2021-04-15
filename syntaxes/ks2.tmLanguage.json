@@ -37,7 +37,7 @@
 		"novels":{
 			"patterns": [
 				{
-					"comment": "名前のノベル文です",
+					"comment": "ノベル文",
 					"name":"markup.raw",
 					"begin": "@{",
 					"end": "@}",
@@ -57,8 +57,14 @@
 						},
                         {
                             "comment": "命令行",
-                            "name": "markup.inline.raw",
+                            "name": "entity.name.function",
                             "match": "\\b(BG|ST|CLR|SE|BGM)\\b.*"
+                        },
+                        {
+                            "comment": "埋め込み命令",
+                            "name": "markup.inline.raw",
+                            "begin": "<[^pn/]*>",
+                            "end": "</.*>"
                         },
 						{
 							"comment": "改行文字",
