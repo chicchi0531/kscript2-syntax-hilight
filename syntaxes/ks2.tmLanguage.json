@@ -58,7 +58,7 @@
                         {
                             "comment": "命令行",
                             "name": "entity.name.function",
-                            "match": "\\b(BG|ST|CLR|SE|BGM)\\b.*"
+                            "match": "\\b(BG|ST|CLR|SE|BGM|EV|CLR_EV)\\b.*"
                         },
                         {
                             "comment": "埋め込み命令",
