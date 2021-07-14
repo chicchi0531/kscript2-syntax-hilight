@@ -39,8 +39,8 @@
 				{
 					"comment": "ノベル文",
 					"name":"markup.raw",
-					"begin": "@{",
-					"end": "@}",
+					"begin": "#novel",
+					"end": "#",
 					"patterns": [
 						{
 							"include": "#inline_var"
@@ -56,10 +56,19 @@
 							]
 						},
                         {
+							"comment": "ボイス行",
+							"name": "markup.bold",
+							"match": "\\+.*",
+							"patterns": [
+								{
+									"include": "#inline_var"
+								}
+							]
+						},
+                        {
                             "comment": "命令行",
                             "name": "entity.name.function",
-                            "begin": "\\[",
-                            "end": "\\]"
+                            "match": "@.*"
                         },
                         {
                             "comment": "埋め込み命令",
@@ -86,15 +95,15 @@
             "patterns": [
                 {
                     "name": "keyword.control",
-                    "match": "\\b(if|else|for|while|break|continue|return|import|system)\\b"
+                    "match": "\\b(var|if|else|switch|case|default|fallthrough|for|break|continue|func|return|import|type|struct|__syscall)\\b"
                 },
                 {
                     "name": "keyword",
-                    "match": "\\b(int|float|string|void|null)\\b"
+                    "match": "\\b(int|float|string|void|nil)\\b"
 				},
 				{
 					"name":"keyword.operator",
-					"match": "\\+|\\-|\\*|/|\\%|<|>|(\\!=)|=|(\\&\\&)|(\\|\\|)"
+					"match": "\\+|\\-|\\*|/|\\%|<|>|(\\!=)|=|(\\&\\&)|(\\|\\|)|(:=)"
 				}
             ]
         },

@@ -9,9 +9,7 @@
     "brackets": [
         ["{", "}"],
         ["[", "]"],
-		["(", ")"],
-		["@{", "@}"],
-        ["<", ">"]
+		["(", ")"]
     ],
     // symbols that are auto closed when typing
     "autoClosingPairs": [
@@ -20,9 +18,8 @@
         ["(", ")"],
         ["\"", "\""],
 		["'", "'"],
-		["@{", "@}"],
-		["%","%"],
-        ["<", ">"]
+		["#novel", "#"],
+		["%","%"]
     ],
     // symbols that that can be used to surround a selection
     "surroundingPairs": [
@@ -31,7 +28,7 @@
         ["(", ")"],
         ["\"", "\""],
 		["'", "'"],
-		["@{", "@}"],
+		["#novel", "#"],
 		["%","%"],
         ["<", ">"]
     ]
