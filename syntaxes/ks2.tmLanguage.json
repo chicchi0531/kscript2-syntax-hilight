@@ -45,9 +45,12 @@
 						{
 							"include": "#inline_var"
 						},
+                        {
+                            "include": "#ruby"
+                        },
 						{
 							"comment": "名前行",
-							"name": "markup.bold",
+							"name": "markup.heading",
 							"match": "\\-.*",
 							"patterns": [
 								{
@@ -94,29 +97,36 @@
         "keywords": {
             "patterns": [
                 {
-                    "name": "keyword.control",
-                    "match": "\\b(var|if|else|switch|case|default|fallthrough|for|break|continue|func|return|import|type|struct|__syscall)\\b"
+                    "name": "keyword",
+                    "match": "\\b(var|func|type|struct|if|else|switch|case|default|fallthrough|for|break|continue|return|import|__syscall)\\b"
                 },
                 {
-                    "name": "keyword",
-                    "match": "\\b(int|float|string|void|nil)\\b"
+                    "name": "storage.type.numeric.go",
+                    "match": "\\b(int|float|void)\\b"
+
+                },
+                {
+                    "name": "storage.type.string.go",
+                    "match": "\\b(string)\\b"
 				},
 				{
 					"name":"keyword.operator",
 					"match": "\\+|\\-|\\*|/|\\%|<|>|(\\!=)|=|(\\&\\&)|(\\|\\|)|(:=)"
-				}
+				},
+                {
+                    "name":"constant.language",
+                    "match": "\\b(true|false|nil)\\b"
+                }
             ]
         },
         "vars": {
             "patterns": [
                 {
                     "comment": "数字です",
-                    "name": "constant.numeric",
                     "match": "%[\\-0-9]+"
                 },
                 {
                     "comment": "識別子です",
-                    "name": "variable",
                     "match": "[a-zA-Z_亜-熙ぁ-んァ-ヶ][0-9a-zA-Z_亜-熙ぁ-んァ-ヶ\\[\\]]*"
                 }
             ]
@@ -125,11 +135,20 @@
 			"patterns": [
 				{
 					"comment": "組み込み変数",
-					"name": "variable",
+					"name": "variable.parameter",
 					"match": "\\%[a-zA-Z_亜-熙ぁ-んァ-ヶ][a-zA-Z_0-9亜-熙ぁ-んァ-ヶ]*\\%"
 				}
 			]
-		}
+		},
+        "ruby":{
+            "patterns": [
+                {
+                    "comment": "ノベル中のルビ構文",
+                    "name": "markup.inline.raw",
+                    "match": "\\[[^\\]]*\\]"
+                }
+            ]
+        }
     },
     "scopeName": "source.ks2"
 }
