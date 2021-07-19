@@ -39,7 +39,7 @@
 				{
 					"comment": "ノベル文",
 					"name":"markup.raw",
-					"begin": "#novel",
+					"begin": "#[ ]*novel",
 					"end": "#",
 					"patterns": [
 						{

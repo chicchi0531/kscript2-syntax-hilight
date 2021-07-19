@@ -2,7 +2,7 @@
 	"name": "kscript2",
 	"displayName": "KScript2",
 	"description": "Language support for kscript2",
-	"version": "1.7.0",
+	"version": "1.7.1",
 	"publisher": "koromosoft",
 	"icon": "images/ks_icon.png",
 	"engines": {
