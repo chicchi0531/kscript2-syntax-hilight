@@ -5,6 +5,9 @@
         {
             "include": "#comments"
         },
+        {
+            "include": "#functions"
+        },
 		{
 			"include": "#novels"
 		},
@@ -148,6 +151,24 @@
                     "match": "\\[[^\\]]*\\]"
                 }
             ]
+        },
+        "functions":{
+            "match": "([a-zA-Z_亜-熙ぁ-んァ-ヶ][0-9a-zA-Z_亜-熙ぁ-んァ-ヶ]*)[ ]*(\\(.*\\))",
+            "captures": {
+                "1": {
+                    "name": "entity.name.function"
+                },
+                "2": {
+                    "patterns": [
+                        {
+                            "include": "#keywords"
+                        },
+                        {
+                            "include": "#comments"
+                        }
+                    ]
+                }
+            }
         }
     },
     "scopeName": "source.ks2"
