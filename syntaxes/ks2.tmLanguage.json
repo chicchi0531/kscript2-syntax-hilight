@@ -41,7 +41,6 @@
 			"patterns": [
 				{
 					"comment": "ノベル文",
-					"name":"markup.raw",
 					"begin": "#[ ]*novel",
 					"end": "#",
 					"patterns": [
@@ -73,8 +72,25 @@
 						},
                         {
                             "comment": "命令行",
-                            "name": "entity.name.function",
-                            "match": "@.*"
+                            "match": "(@[^ ]*)(.*)",
+                            "captures": {
+                                "1": {
+                                    "name": "entity.name.function"
+                                },
+                                "2": {
+                                    "patterns": [
+                                        {
+                                            "include": "#keywords"
+                                        },
+                                        {
+                                            "include": "#comments"
+                                        },
+                                        {
+                                            "include": "#strings"
+                                        }
+                                    ]
+                                }
+                            }
                         },
                         {
                             "comment": "埋め込み命令",
@@ -86,7 +102,12 @@
 							"comment": "改行文字",
 							"name": "keyword.other",
 							"match": "」|<p>|<n>"
-						}
+						},
+                        {
+                            "comment": "コメント",
+                            "match": "//.*",
+                            "name": "comment.line"
+                        }
 					]
 				}
 			]
@@ -106,7 +127,6 @@
                 {
                     "name": "storage.type.numeric.go",
                     "match": "\\b(int|float|void)\\b"
-
                 },
                 {
                     "name": "storage.type.string.go",
@@ -165,6 +185,9 @@
                         },
                         {
                             "include": "#comments"
+                        },
+                        {
+                            "include": "#strings"
                         }
                     ]
                 }
