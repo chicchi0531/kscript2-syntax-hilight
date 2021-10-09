@@ -41,35 +41,45 @@
 			"patterns": [
 				{
 					"comment": "ノベル文",
-					"begin": "#[ ]*novel",
-					"end": "#",
-					"patterns": [
-						{
-							"include": "#inline_var"
-						},
+					"begin": "#[ ]*novel[ ]*{",
+                    "beginCaptures": {
+                        "0":{
+                            "name":"keyword.control"
+                        }
+                    },
+                    "end": "}",
+                    "endCaptures": {
+                        "0":{
+                            "name":"keyword.control"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#inline_var"
+                        },
                         {
                             "include": "#ruby"
                         },
-						{
-							"comment": "名前行",
-							"name": "markup.heading",
-							"match": "\\-.*",
-							"patterns": [
-								{
-									"include": "#inline_var"
-								}
-							]
-						},
                         {
-							"comment": "ボイス行",
-							"name": "markup.bold",
-							"match": "\\+.*",
-							"patterns": [
-								{
-									"include": "#inline_var"
-								}
-							]
-						},
+                            "comment": "名前行",
+                            "name": "markup.heading",
+                            "match": "\\-.*",
+                            "patterns": [
+                                {
+                                    "include": "#inline_var"
+                                }
+                            ]
+                        },
+                        {
+                            "comment": "ボイス行",
+                            "name": "markup.bold",
+                            "match": "\\+.*",
+                            "patterns": [
+                                {
+                                    "include": "#inline_var"
+                                }
+                            ]
+                        },
                         {
                             "comment": "命令行",
                             "match": "(@[^ ]*)(.*)",
@@ -98,17 +108,17 @@
                             "begin": "<[^pn/]*>",
                             "end": "</.*>"
                         },
-						{
-							"comment": "改行文字",
-							"name": "keyword.other",
-							"match": "」|<p>|<n>"
-						},
+                        {
+                            "comment": "改行文字",
+                            "name": "keyword.other",
+                            "match": "」|<p>|<n>"
+                        },
                         {
                             "comment": "コメント",
                             "match": "//.*",
                             "name": "comment.line"
                         }
-					]
+                    ]
 				}
 			]
 		},
